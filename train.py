@@ -80,7 +80,7 @@ if __name__ ==  '__main__':
 
       model = mobile_net_mobile
 
-    else:
+    elif m =='RN':
       pretrained_model= tf.keras.applications.ResNet50(include_top=False,
                         input_shape=(224,224,3),
                         pooling='avg',classes=5,
@@ -99,6 +99,50 @@ if __name__ ==  '__main__':
       Altered_ResNet = Model(pretrained_model.input, resnet_model, name='Altered_MobileNet')
 
       model = Altered_ResNet
+
+    elif m == 'VG':
+      from keras.applications.vgg16 import VGG16
+
+      pretrained_model = VGG16(include_top=False,
+                        input_shape=(224,224,3),
+                        pooling='avg',classes=5,
+                        weights='imagenet')
+      for layer in pretrained_model.layers[:-1]:
+              layer.trainable=False
+
+      vgg_model = Flatten()(pretrained_model.output)
+      vgg_model = Dropout(0.3)(vgg_model)
+      vgg_model = Dense(4096, activation='relu')(vgg_model)
+      vgg_model = Dropout(0.3)(vgg_model)
+      vgg_model = Dense(1024, activation='relu')(vgg_model)
+      vgg_model = Dropout(0.3)(vgg_model)
+      vgg_model = Dense(12, activation='softmax')(vgg_model)
+
+      Altered_VGG = Model(pretrained_model.input, vgg_model, name='Altered_MobileNet')
+
+      model = Altered_VGG
+
+    elif m == 'IC':
+      from keras.applications.inception_v3 import InceptionV3
+      # load model
+      pretrained_model = InceptionV3(include_top=False,
+                        input_shape=(224,224,3),
+                        pooling='avg',classes=5,
+                        weights='imagenet')
+      for layer in pretrained_model.layers[:-1]:
+              layer.trainable=False
+
+      incep_model = Flatten()(pretrained_model.output)
+      incep_model = Dropout(0.3)(incep_model)
+      incep_model = Dense(4096, activation='relu')(incep_model)
+      incep_model = Dropout(0.3)(incep_model)
+      incep_model = Dense(1024, activation='relu')(incep_model)
+      incep_model = Dropout(0.3)(incep_model)
+      incep_model = Dense(12, activation='softmax')(incep_model)
+
+      Altered_Incep = Model(pretrained_model.input, incep_model, name='Altered_MobileNet')
+
+      model = Altered_Incep
 
     return model
 
