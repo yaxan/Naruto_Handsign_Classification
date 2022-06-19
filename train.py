@@ -36,7 +36,7 @@ if __name__ ==  '__main__':
           datagen = ImageDataGenerator(
                               rescale=1./255,
                               featurewise_center=False,
-                              featurewise_std_normalization=True,
+                              featurewise_std_normalization=False,
                               rotation_range=25,
                               width_shift_range=0.3,
                               height_shift_range=0.3,
@@ -81,11 +81,20 @@ if __name__ ==  '__main__':
       model = mobile_net_mobile
 
     else:
-      train_ds = preprocess_input(train_generator) 
+      resnet_model = Sequential()
+
+      pretrained_model= tf.keras.applications.ResNet50(include_top=False,
+                        input_shape=(180,180,3),
+                        pooling='avg',classes=5,
+                        weights='imagenet')
+      for layer in pretrained_model.layers[:-1]:
+              layer.trainable=False
+
+      resnet_model.add(pretrained_model)
 
     return model
 
-  model = load_model('MN')
+  model = load_model('A')
 
   adam = tf.keras.optimizers.Adam(learning_rate=0.001)
   sgd = tf.keras.optimizers.SGD(learning_rate=0.001)
