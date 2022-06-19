@@ -81,16 +81,24 @@ if __name__ ==  '__main__':
       model = mobile_net_mobile
 
     else:
-      resnet_model = Sequential()
-
       pretrained_model= tf.keras.applications.ResNet50(include_top=False,
-                        input_shape=(180,180,3),
+                        input_shape=(224,224,3),
                         pooling='avg',classes=5,
                         weights='imagenet')
       for layer in pretrained_model.layers[:-1]:
               layer.trainable=False
 
-      resnet_model.add(pretrained_model)
+      resnet_model = Flatten()(pretrained_model.output)
+      resnet_model = Dropout(0.3)(resnet_model)
+      resnet_model = Dense(4096, activation='relu')(resnet_model)
+      resnet_model = Dropout(0.3)(resnet_model)
+      resnet_model = Dense(1024, activation='relu')(resnet_model)
+      resnet_model = Dropout(0.3)(resnet_model)
+      resnet_model = Dense(12, activation='softmax')(resnet_model)
+
+      Altered_ResNet = Model(pretrained_model.input, resnet_model, name='Altered_MobileNet')
+
+      model = Altered_ResNet
 
     return model
 
