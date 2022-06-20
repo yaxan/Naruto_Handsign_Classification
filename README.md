@@ -44,3 +44,4 @@ Contributers of the project are listed below. Click the hyperlink to follow up a
 1. [Saad Hossain](https://github.com/sdhossain)
 2. [Jaeyoung Kang](https://github.com/j97kang)
 3. [Yazan Masoud](https://github.com/yaxan)
+4. [Michael Frew](https://github.com/mooshifrew)
