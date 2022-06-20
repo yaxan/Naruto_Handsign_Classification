@@ -26,7 +26,7 @@ See links below for details of the four models.
 
 ## Data
 
-The data used in this project was manually collected and augmented and collected by collecting a video from a webcam, following a number of data-augmentations such as flips and rotations to increase dataset size.
+The data used in this project was manually collected and augmented by recording a video from a webcam utilizing OpenCV, following a number of data-augmentations such as flips and rotations to increase dataset size.
 
 
 ## Packages Used
