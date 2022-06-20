@@ -14,6 +14,10 @@ https://user-images.githubusercontent.com/41130598/174506955-9ea1c002-effd-4982-
 
 MobileNetV2, ResNet50, VGG16, and InceptionV3 models were chosen for the classification task. Out of the four models, VGG16 performed the best at an accuracy of **93.60%** for the test dataset as well as a minimum accuracy of **83.33%** for the live demo.
 
+Architecture of the VGG16 model is shown below.
+
+**![image](https://user-images.githubusercontent.com/74623611/174507226-39e2be13-ff11-4697-b0c2-f2b2a9123474.png)**
+
 See links below for details of the four models.
 1. [MobileNetV2](https://keras.io/api/applications/mobilenet/)
 2. [ResNet50](https://www.tensorflow.org/api_docs/python/tf/keras/applications/resnet50/ResNet50)
