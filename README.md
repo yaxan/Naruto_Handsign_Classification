@@ -20,7 +20,7 @@ The data used in this project was manually collected and augmented and collected
 
 The trained model performed well at an accuracy of **83.33%** and up for the live demo. Classes Dog and Serpent have troubles classifying at certain situations, but the other 10 classes performed greatly. See below for a demonstration of the live classification.
 
-![image](https://user-images.githubusercontent.com/74623611/174505796-f8d22497-af7b-47b8-b714-ac57ae8a6a44.png)
+https://user-images.githubusercontent.com/41130598/174506955-9ea1c002-effd-4982-9365-2dba0703b6a7.mp4
 
 
 ## Packages Used
