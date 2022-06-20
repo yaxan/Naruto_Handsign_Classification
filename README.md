@@ -33,9 +33,9 @@ The data used in this project was manually collected and augmented by recording 
 ### * TensorFlow * OpenCV * Mediapipe * Numpy * Pillow *
 The requirements for the project are as follows: <br>
 1. Python=3.7.7
-2. Tensorflow==2.8.0
-3. OpenCV==4.6.0.66
-4. Numpy==1.21.5
+2. Tensorflow=2.8.0
+3. OpenCV=4.6.0.66
+4. Numpy=1.21.5
 5. Pillow=9.1.0
 6. Mediapipe=0.8.10
 
