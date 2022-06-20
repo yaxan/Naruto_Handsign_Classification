@@ -4,7 +4,7 @@ This is a project based on the well-known famous Japanese Animated Series "Narut
 
 ## Models
 
-MobileNetV2, ResNet50, VGG16, and InceptionV3 models were chosen for the classification task. Out of the four models, VGG16 performed the best at an accuracy of **90%** and up for the test dataset as well as a minimum accuracy of **83.33%** for the live demo.
+MobileNetV2, ResNet50, VGG16, and InceptionV3 models were chosen for the classification task. Out of the four models, VGG16 performed the best at an accuracy of **93.60%** for the test dataset as well as a minimum accuracy of **83.33%** for the live demo.
 
 See links below for details of the four models.
 1. [MobileNetV2](https://keras.io/api/applications/mobilenet/)
