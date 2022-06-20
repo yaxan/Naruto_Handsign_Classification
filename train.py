@@ -18,10 +18,10 @@ CollectiveAllReduceExtended._enable_check_health = False
 
 tf.compat.v1.disable_eager_execution()
 PATH_TO_TRAIN_DATA = "D:\\code\\Naruto_Handsign_Classification\\train"
-PATH_TO_TEST_DATA = "D:\\code\\Naruto_Handsign_Classification\\Data"
+PATH_TO_TEST_DATA = "D:\\code\\Naruto_Handsign_Classification\\newTest"
 BATCH_SIZE = 16
-TRAIN_SIZE = 5077
-TEST_SIZE = 290
+TRAIN_SIZE = 4777
+TEST_SIZE = 300
 
 #Descriptor of file structure of a dataset (example dataset_train)
 #./dataset
@@ -40,9 +40,10 @@ if __name__ ==  '__main__':
                               rotation_range=25,
                               width_shift_range=0.3,
                               height_shift_range=0.3,
-                              shear_range=0.10,
+                              shear_range=0.5,
                               zoom_range=0.3,
-                              horizontal_flip=False)
+                              horizontal_flip=False,
+                              brightness_range=[0.8,1.1])
       else:
           datagen = ImageDataGenerator(rescale=1./255)
 
@@ -146,13 +147,13 @@ if __name__ ==  '__main__':
 
     return model
 
-  model = load_model('A')
+  model = load_model('VG')
 
   adam = tf.keras.optimizers.Adam(learning_rate=0.001)
   sgd = tf.keras.optimizers.SGD(learning_rate=0.001)
   rlrop = tf.keras.callbacks.ReduceLROnPlateau(monitor='val_accuracy',mode='max',factor=0.5, patience=10, min_lr=0.001, verbose=1)
-  early_stopper = tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0, patience=20, verbose=1,
-                                            mode='auto', baseline=None, restore_best_weights=False)
+  early_stopper = tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0, patience=5, verbose=1,
+                                            mode='auto', baseline=None, restore_best_weights=True)
   model.compile(loss='categorical_crossentropy',
                   optimizer=adam, metrics=['accuracy'])
 
@@ -162,7 +163,9 @@ if __name__ ==  '__main__':
       steps_per_epoch=TRAIN_SIZE// BATCH_SIZE,
       validation_steps=TEST_SIZE// BATCH_SIZE,
       shuffle=True,
-      epochs=100,
-      #callbacks=[early_stopper],
+      epochs=50,
+      callbacks=[early_stopper],
       use_multiprocessing=False,
   )
+
+  model.save("./VGG_Naruto_Model")
