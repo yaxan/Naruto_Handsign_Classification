@@ -2,6 +2,14 @@
 
 This is a project based on the well-known famous Japanese Animated Series "Naruto" by Masashi Kishimoto. In the animated show, there are characters referred to as "Ninja" who make a various number of hand-sign combinations as a way to utilize their abilities. This project attempts to use Deep Learning and Computer Vision techniques to identify what handsign an individual has made. 
 
+
+## Live Demo Classification
+
+The trained model performed well at an accuracy of **83.33%** and up for the live demo. Classes Dog and Serpent have troubles classifying at certain situations, but the other 10 classes performed greatly. See below for a demonstration of the live classification.
+
+https://user-images.githubusercontent.com/41130598/174506955-9ea1c002-effd-4982-9365-2dba0703b6a7.mp4
+
+
 ## Models
 
 MobileNetV2, ResNet50, VGG16, and InceptionV3 models were chosen for the classification task. Out of the four models, VGG16 performed the best at an accuracy of **93.60%** for the test dataset as well as a minimum accuracy of **83.33%** for the live demo.
@@ -15,12 +23,6 @@ See links below for details of the four models.
 ## Data
 
 The data used in this project was manually collected and augmented and collected by collecting a video from a webcam, following a number of data-augmentations such as flips and rotations to increase dataset size.
-
-## Live Demo Classification
-
-The trained model performed well at an accuracy of **83.33%** and up for the live demo. Classes Dog and Serpent have troubles classifying at certain situations, but the other 10 classes performed greatly. See below for a demonstration of the live classification.
-
-https://user-images.githubusercontent.com/41130598/174506955-9ea1c002-effd-4982-9365-2dba0703b6a7.mp4
 
 
 ## Packages Used
