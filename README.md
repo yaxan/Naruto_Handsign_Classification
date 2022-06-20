@@ -1,6 +1,6 @@
 # Naruto HandSign Classification
 
-This is a project based on the well-known famous Japanese Animated Series "Naruto" by Masashi Kishimoto. In the animated show, there are characters referred to as "Ninja" who make a various number of hand-sign combinations as a way to utilize their abilities. This project attempts to use Deep Learning and Computer Vision techniques to identify what handsign an individual has made. 
+This is a project based on the well-known famous Japanese Animated Series "Naruto" by Masashi Kishimoto. In the show, the ninjas weave various hand-signs combinations as a way to use their techniques referred to as jutsus. This project attempts to use Deep Learning and Computer Vision techniques to identify what handsign an individual has made. 
 
 
 ## Live Demo Classification
