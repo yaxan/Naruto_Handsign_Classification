@@ -12,7 +12,7 @@ https://user-images.githubusercontent.com/41130598/174506955-9ea1c002-effd-4982-
 
 ## Models
 
-MobileNetV2, ResNet50, VGG16, and InceptionV3 models were chosen for the classification task. Out of the four models, VGG16 performed the best at an accuracy of **93.60%** for the test dataset as well as a minimum accuracy of **83.33%** for the live demo.
+We experimented on MobileNetV2, ResNet50, VGG16, and InceptionV3 architectures due to their prominence in image classification tasks. We froze all but their last few layers to take advantage of their feature extraction capabilities they learned from being trained on the imagenet dataset, effectively using transfer-learning for our image-classifcation task. Out of the four models/architectures, VGG16 performed the best at an accuracy of **93.60%** on the mannually curated static test dataset as well as a minimum accuracy of **83.33%** for the live demo.
 
 Architecture of the VGG16 model is shown below.
 
