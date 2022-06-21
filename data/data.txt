@@ -1,0 +1,14 @@
+this is the folder where training and testing data will be placed
+.      
+ /train_data
+  /bird (class 1 dir)
+  /boar (class 2 dir)
+  ... (rest of classes)
+ /test_data
+  /bird (class 1 dir)
+  /boar (class 2 dir)
+  ... (rest of classes)
+
+make sure all images are correctly placed in the correct directories.
+
+execute dataset_pictures.py to create dataset
