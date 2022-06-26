@@ -5,7 +5,7 @@ This is a project based on the well-known famous Japanese Animated Series "Narut
 
 ## Live Demo Classification
 
-The trained model performed well at an accuracy of **83.33%** and up for the live demo. Classes Dog and Serpent have troubles classifying at certain situations, but the other 10 classes performed greatly. See below for a demonstration of the live classification.
+The trained model performed great for 10 of the classes while classes Dog and Serpent are the machines weakpoints as it is not as consistent in classifying those two. See below for a demonstration of the live classification.
 
 https://user-images.githubusercontent.com/41130598/174506955-9ea1c002-effd-4982-9365-2dba0703b6a7.mp4
 
