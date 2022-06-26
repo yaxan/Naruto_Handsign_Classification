@@ -1,22 +1,14 @@
-import os
-import numpy as np
-
 import tensorflow as tf
-from tensorflow.keras.applications.vgg16 import VGG16
-from tensorflow.keras.applications.vgg16 import preprocess_input
-from tensorflow.keras.models import Model
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import *
-from tensorflow.keras import layers, models
-from tensorflow.keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPool2D
-from tensorflow.keras.optimizers import RMSprop,Adam
-from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from keras.callbacks import ModelCheckpoint
+from keras.applications.vgg16 import VGG16
+from keras.applications.inception_v3 import InceptionV3
+from keras.models import Model
+from keras.layers import Dense, Dropout, Flatten
+from keras.preprocessing.image import ImageDataGenerator
 from tensorflow.python.distribute.collective_all_reduce_strategy import CollectiveAllReduceExtended
-CollectiveAllReduceExtended._enable_check_health = False
 
+CollectiveAllReduceExtended._enable_check_health = False
 tf.compat.v1.disable_eager_execution()
+
 PATH_TO_TRAIN_DATA = "D:\\code\\Naruto_Handsign_Classification\\train"
 PATH_TO_TEST_DATA = "D:\\code\\Naruto_Handsign_Classification\\newTest"
 BATCH_SIZE = 16
@@ -102,8 +94,6 @@ if __name__ ==  '__main__':
       model = Altered_ResNet
 
     elif m == 'VG':
-      from keras.applications.vgg16 import VGG16
-
       pretrained_model = VGG16(include_top=False,
                         input_shape=(224,224,3),
                         pooling='avg',classes=5,
@@ -124,8 +114,6 @@ if __name__ ==  '__main__':
       model = Altered_VGG
 
     elif m == 'IC':
-      from keras.applications.inception_v3 import InceptionV3
-      # load model
       pretrained_model = InceptionV3(include_top=False,
                         input_shape=(224,224,3),
                         pooling='avg',classes=5,
