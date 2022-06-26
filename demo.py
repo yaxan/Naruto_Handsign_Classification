@@ -1,13 +1,13 @@
 import os
 import mediapipe as mp
-
 import cv2
 import numpy as np
 import tensorflow as tf
 
 model = tf.keras.models.load_model("./VGG_Naruto_Model2")
 
-leniency = 100
+LENIENCY = 100
+NUM_FRAMES = 0
 
 cap = cv2.VideoCapture(0)
 mpHands = mp.solutions.hands
@@ -15,11 +15,9 @@ hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
 
 # Reading in label images
-label_images = dict()
+label_images = {}
 for img_name in os.listdir('images'):
     label_images.update({img_name[:-4]: cv2.imread(f'images/{img_name}')})
-
-num_frames = 0
 
 while True:
     success, image = cap.read()
@@ -29,8 +27,6 @@ while True:
     except:
         continue
     results = hands.process(imageRGB)
-
-    aWeight = 0.5
 
     # checking whether a hand is detected
     if results.multi_hand_landmarks:
@@ -48,10 +44,10 @@ while True:
             #mpDraw.draw_landmarks(image, handLms, mpHands.HAND_CONNECTIONS)
 
         if len(xs) and len(ys):
-            ma_x = max([0, max(xs) + leniency])
-            ma_y = max([0, max(ys) + leniency])
-            mi_x = max([0, min(xs) - leniency])
-            mi_y = max([0, min(ys) - leniency])
+            ma_x = max([0, max(xs) + LENIENCY])
+            ma_y = max([0, max(ys) + LENIENCY])
+            mi_x = max([0, min(xs) - LENIENCY])
+            mi_y = max([0, min(ys) - LENIENCY])
 
             image = cv2.rectangle(img=image, pt1=(mi_x, mi_y), pt2=(ma_x, ma_y), color=(0, 0, 255), thickness=2)
             cropped = image[mi_y:ma_y, mi_x:ma_x]
@@ -107,7 +103,7 @@ while True:
         confidences = dict()
         for k in label_images.keys():
             confidences.update({k: 0})
-            num_frames += 1
+            NUM_FRAMES += 1
 
     colors = dict()
     for k in confidences.keys():
