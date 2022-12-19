@@ -40,7 +40,7 @@ The requirements for the project are as follows: <br>
 
 ## Contributers
 
-Contributers of the project are listed below. Click the hyperlink to follow up and more projects.
+Contributers of the project are listed below. Click the hyperlink to follow up on more projects.
 
 1. [Saad Hossain](https://github.com/sdhossain)
 2. [Jaeyoung Kang](https://github.com/j97kang)
