@@ -1,6 +1,9 @@
+Noticing some recent stars on github probably from reels with similar projects.. this was done pre-LLMs when I was a sophomore, any LLM could one shot this kind of thing nowadays and be 100x better.
+
 # Naruto Hand Sign Classification
 
 This is a project based on the anime Naruto by Masashi Kishimoto. In the show, the ninjas weave various hand-signs combinations as a way to use their techniques referred to as jutsus. This project attempts to use Deep Learning and Computer Vision techniques to identify what handsign an individual is making. 
+
 
 
 ## Live Demo Classification
